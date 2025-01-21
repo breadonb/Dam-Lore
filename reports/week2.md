@@ -15,9 +15,13 @@ Issues we encountered was that we were unsure of the subjects we wanted to put o
 history sites, parks...etc. Another part is that should we find some places that have interesting stories and go interview people?
 We have to think whether we have time to do this or not.  
 
+## Goals
+- Think of features(restaurants, history sites...etc) that should be included in the map (1/23)
+      - Think of landmarks that we can add to the map (1/26)
+- Split into smaller groups for different parts (1/23)
 
 
-## Contributions of individual team members
+### Contributions of individual team members
 
 ### Amit Guha:
 
