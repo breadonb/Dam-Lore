@@ -1,4 +1,4 @@
-#Team report
+# Team report
 
 ## Goals from a week ago 
 --
@@ -21,7 +21,7 @@ We have to think whether we have time to do this or not.
 - Split into smaller groups for different parts (1/23)
 
 
-### Contributions of individual team members
+# Contributions of individual team members
 
 ### Amit Guha:
 
