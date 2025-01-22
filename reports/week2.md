@@ -33,6 +33,7 @@ We have to think whether we have time to do this or not.
 - Attend meeting with the TA
 - Set up Discord Repository
 - Weekly status report week2
+- Edit living document
   
 ### Michael Balzer:
 
