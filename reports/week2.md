@@ -39,13 +39,9 @@ We have to think whether we have time to do this or not.
 ### Sjoerd De Bruyn:
  - Attended group meetings
  - Attended TA meeting
- - Built the rough draft of the webpage, including
-       - Home page
-       - History page
-       - Meet the team page
-       - Map page
-       - CSS for all pages
-- Established the github page to run server and configured the application to run on github pages
+ - Built the rough draft of the webpage, including: Home page; History page; Meet the team page; Map page; CSS for all pages
+ - Established the github page to run server and configured the application to run on github pages
+ - Polished and reorganized living document
 
 ### Ben Breadon:
 
