@@ -17,7 +17,7 @@ We have to think whether we have time to do this or not.
 
 ## Goals
 - Think of features(restaurants, history sites...etc) that should be included in the map (1/23)
-      - Think of landmarks that we can add to the map (1/26)
+  - Think of landmarks that we can add to the map (1/26)
 - Split into smaller groups for different parts (1/23)
 
 
