@@ -44,6 +44,9 @@ We have to think whether we have time to do this or not.
  - Polished and reorganized living document
 
 ### Ben Breadon:
+ - Attended group meeting
+ - Added use-case #7 "itinerary page" to living doc
+ - Brainstormed favorite locations for maps database
 
 ### Kairon Johnson:
 
