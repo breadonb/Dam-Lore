@@ -26,13 +26,15 @@ We have to think whether we have time to do this or not.
 ### Amit Guha:
 
 ### Dan Quan:
+  - Attended Group Meetings 
+  - Reformatted the Living Document
+  - Created the Projection Presentation
 
 ### Lucy Cheng:
-- Set up a discord channel
-- attend group meetings
+- Set up a Discord Server
+- Attended Group Meetings
 - Attend meeting with the TA
-- Set up Discord Repository
-- Weekly status report week2
+- Set up Github Repository
 - Edit living document
   
 ### Michael Balzer:
