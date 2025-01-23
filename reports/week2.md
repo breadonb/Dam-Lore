@@ -54,3 +54,9 @@ We have to think whether we have time to do this or not.
 
 ### Kairon Johnson:
 
+### Amit Guha
+ - Attended group meetings
+ - Created Trello for Team
+ - Attended TA meetings
+ - Added parts to living document
+ - Researched points/locations for map
