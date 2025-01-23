@@ -38,6 +38,10 @@ We have to think whether we have time to do this or not.
 - Edit living document
   
 ### Michael Balzer:
+- attended group meetings
+- helped work through living document
+- started research for locatoins to incorporate into website
+- 
 
 ### Sjoerd De Bruyn:
  - Attended group meetings
