@@ -53,6 +53,10 @@ We have to think whether we have time to do this or not.
 ### Ben Breadon:
 
 ### Kairon Johnson:
+ - Attended group meetings
+ - Built interview template to be used during data collection
+ - Assisted refining sections of living document
+ - Provided input on organizing the interview process and identifying potential interviewees
 
 ### Amit Guha
  - Attended group meetings
