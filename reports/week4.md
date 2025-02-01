@@ -12,7 +12,9 @@ to class server (because of dynamics). We came into an agreement that we should 
 our project move forward so we can do research stuff later. 
 
 
-Issues we encountered were 
+Issues we encountered were when we added mission.html. It didn't show up on the website. It's probably
+a technical issue. Another issue is we are thinking of making our own icon landmarks, it's just a thought
+we're not sure how we will do that. 
 
 ## Goals
 - Creating "Our Mission" page (2/2)
@@ -29,7 +31,9 @@ Issues we encountered were
 
 
 ### Lucy Cheng:
-
+- attend team meeting
+- edit weekly status report
+- In charge of "Our Mission page"
 
 ### Michael Balzer:
 
