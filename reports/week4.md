@@ -39,6 +39,11 @@ we're not sure how we will do that.
 
 
 ### Sjoerd De Bruyn:
+- Attended team meeting
+- Attended TA meeting
+- Adapted and migrated project to host on engineering servers instead of github pages
+- Set up MongoDB
+- Connected with cultural centers for research interviews
 
 
 ### Ben Breadon:
