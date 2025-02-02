@@ -38,6 +38,9 @@ implementing codes.
 
 
 ### Sjoerd De Bruyn:
+- Presented project to class
+- Attended standup meeting
+- Edit project eliciation document
 
 
 ### Ben Breadon:
