@@ -28,7 +28,9 @@ we're not sure how we will do that.
 ### Amit Guha:
 
 ### Dan Quan:
-
+- Attended Team Meeting 
+- Attended TA Meeting 
+- In charge of Web Design
 
 ### Lucy Cheng:
 - attend team meeting
