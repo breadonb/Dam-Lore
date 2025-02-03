@@ -49,5 +49,8 @@ we're not sure how we will do that.
 ### Ben Breadon:
 
 ### Kairon Johnson:
+- Attended team Meeting
+- Researched hosting methods available at OSU Open Labs for dynamic webpages
+- Reached out to cultural centers for interviews
 
 ### Amit Guha
