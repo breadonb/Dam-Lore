@@ -19,7 +19,7 @@ we're not sure how we will do that.
 ## Goals
 - Creating "Our Mission" page (2/2)
 - Creating tour page (2/2)
-- interviewing culture centers at OSU (2/2)
+- Schedule interviews with culture centers at OSU (2/2)
 - switching from GitHub pages to class server (2/2)
 
 
