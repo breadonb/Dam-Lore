@@ -26,6 +26,10 @@ we're not sure how we will do that.
 # Contributions of individual team members
 
 ### Amit Guha:
+- Created tour page with Michael
+- Added dynamic functionality to tour page
+- Editted weekly status report
+- Attended team meeting
 
 ### Dan Quan:
 - Attended Team Meeting 
@@ -54,5 +58,3 @@ we're not sure how we will do that.
 - Attended team Meeting
 - Researched hosting methods available at OSU Open Labs for dynamic webpages
 - Reached out to cultural centers for interviews
-
-### Amit Guha
