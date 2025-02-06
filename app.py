@@ -1,8 +1,14 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from pymongo import MongoClient
 
 app = FastAPI()
+
+MONGO_URI = "mongodb+srv://debruyns:DAMLore@damlore-cluster.qn1o6.mongodb.net/"
+client = MongoClient(MONGO_URI)
+db = client ["debruyns"]
+collection = db["landmarks"]
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -25,5 +31,10 @@ async def get_mission(request: Request):
     return templates.TemplateResponse("mission.html", {"request": request})
 
 @app.get("/history")
-async def get_history(request:Request):
-    return templates.TemplateResponse("history.html", {"request": request})
+async def get_history(request: Request):
+    landmarks = list(collection.find({},{"_id":0}))
+    return templates.TemplateResponse("history.html", {"request": request, "landmarks": landmarks})
+
+@app.get("/tour")
+async def get_tour(request: Request):
+    return templates.TemplateResponse("tour.html", {"request": request})
