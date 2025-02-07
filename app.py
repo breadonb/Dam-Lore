@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Query
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pymongo import MongoClient
@@ -31,9 +31,13 @@ async def get_mission(request: Request):
     return templates.TemplateResponse("mission.html", {"request": request})
 
 @app.get("/history")
-async def get_history(request: Request):
-    landmarks = list(collection.find({},{"_id":0}))
-    return templates.TemplateResponse("history.html", {"request": request, "landmarks": landmarks})
+async def get_history(request: Request, tag:str = Query("", alias="tag")):
+    available_tags = sorted(set(collection.distinct("tag")))
+    if tag: 
+        landmarks = list(collection.find({"tag":tag}, {"_id": 0}))
+    else:
+        landmarks = list(collection.find({},{"_id":0}))
+    return templates.TemplateResponse("history.html", {"request": request, "landmarks": landmarks, "available_tags":available_tags, "selected_tag":tag})
 
 @app.get("/tour")
 async def get_tour(request: Request):
