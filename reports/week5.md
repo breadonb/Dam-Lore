@@ -40,7 +40,9 @@ including layout improvements, interactive elements, and clearer navigation. We 
 
 
 ### Lucy Cheng:
-
+- Made week5 report
+- Attend group meeting
+  
 
 ### Michael Balzer:
 
