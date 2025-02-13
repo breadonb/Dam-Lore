@@ -37,7 +37,10 @@ including layout improvements, interactive elements, and clearer navigation. We 
 ### Amit Guha:
 
 ### Dan Quan:
-
+- Made a Prototype of Website Layout 
+    - Fixed hrefs not working
+    - Fixed images not loading
+- Attended Group Meeting
 
 ### Lucy Cheng:
 - Made week5 report
