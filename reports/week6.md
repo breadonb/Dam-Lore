@@ -35,7 +35,10 @@ We must design it in a way that allows students to quickly access relevant detai
 ### Amit Guha:
 
 ### Dan Quan:
-
+- Merged About Us and Our Mission pages
+- Sketched Different Website Layouts
+- Edited Live Document
+- Worked on Presentation
 
 ### Lucy Cheng:
 - Edit team living document
