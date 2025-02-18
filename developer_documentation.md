@@ -3,7 +3,11 @@
 ## Obtain the source code
 1. Ensure you have Git installed on your system.
 
-2. Clone the repository: git@github.com:LucyCheng111/Dam-Lore.git
+2. Clone the repository using the following command:
+     cd [git@github.com:LucyCheng111/Dam-Lore.git](https://github.com/LucyCheng111/Dam-Lore.git)
+   
+4. Navigate to the project directory:
+     cd Dam-Lore
 
 ## Layout of your directory structure
 The overview of the project is in README.md. 
