@@ -55,7 +55,6 @@ including layout improvements, interactive elements, and clearer navigation. We 
   - reformatted html
   - connected and met with repersentives of the Special Archives Collection for guided research
   - Attended group meeting
-  - Gave midterm presentation
 
 
 ### Ben Breadon:
