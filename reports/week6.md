@@ -49,7 +49,8 @@ We must design it in a way that allows students to quickly access relevant detai
 
 
 ### Sjoerd De Bruyn:
-
+  - worked on presentation
+  - gave midterm presentation
 
 
 ### Ben Breadon:
