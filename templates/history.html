@@ -32,7 +32,7 @@
 
   <!-- History Entries -->
   <section class="history">
-    <h2>Historical Entries</h2>
+    <h2>Entries</h2>
 
     {%if landmarks%}
       {%for landmark in landmarks%}
@@ -40,9 +40,8 @@
           <img src="{{ landmark.image_url}}" alt = "{{landmark.name}}">
           <div class="entry-info">
             <h3>{{landmark.name}}</h3>
-            <p><strong>Location:</strong>{{landmark.address}}</p>
-            <p><strong>Date Established:</strong> {{landmark.date}}</p>
-            <p>{{landmark.info}}</p>
+            <p><strong>Location: </strong>{{landmark.location}}</p>
+            <p>{{landmark.description}}</p>
           </div>
         </div>
         <hr>

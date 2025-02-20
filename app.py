@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Query
+from fastapi import FastAPI, Form, Request, Query
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pymongo import MongoClient
@@ -42,3 +42,25 @@ async def get_history(request: Request, tag:str = Query("", alias="tag")):
 @app.get("/tour")
 async def get_tour(request: Request):
     return templates.TemplateResponse("tour.html", {"request": request})
+
+@app.get("/adder")
+async def get_adder(request:Request):
+    return templates.TemplateResponse("adder.html", {"request":request})
+
+@app.post("/adder")
+async def post_adder(
+    name: str = Form(...),
+    image_url: str = Form(...),
+    description: str = Form(...),
+    location: str = Form(...),
+    tag: str = Form(None),
+):
+    new_landmark = {
+        "name": name,
+        "image_url": image_url,
+        "description": description,
+        "location": location,
+        "tag": tag
+    }
+    collection.insert_one(new_landmark)
+    return {"message": "Landmark added successfully!"}
