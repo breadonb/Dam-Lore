@@ -11,6 +11,11 @@
 ### Amit Guha:
 
 ### Dan Quan:
+- Customized Map Features
+    - Changed Theme
+    - Created Map Boundaries
+    - Tested Markers
+- Created Documentation for User Guide
 
 ### Lucy Cheng:
 
