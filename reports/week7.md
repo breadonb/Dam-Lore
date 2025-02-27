@@ -1,6 +1,10 @@
 # Team report
 
 ## Goals from a week ago 
+- Decide what landmarks to appear in our custom map (2/19)
+- Decide what info to appear in our custom map (2/19)
+- Assigning the team to smaller teams (2/21)
+- Assigning small teams to research different parts of Corvallis and OSU (2/21)
 
 ## progress and issues
 
