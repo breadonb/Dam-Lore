@@ -7,8 +7,10 @@
 - Assigning small teams to research different parts of Corvallis and OSU (2/21)
 
 ## progress and issues
+--Everyone's busy
 
 ## Goals
+- Have a meeting and divide works (2/28)
 
 # Contributions of individual team members
 
