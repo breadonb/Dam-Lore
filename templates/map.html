@@ -1,8 +1,8 @@
-{%extends "base.html"%}
+{% extends "base.html" %}
 
-{%block title%}Map{%endblock%}
+{% block title %}Map{% endblock %}
 
-{%block content%}
+{% block content %}
   <!-- Search Ribbon -->
   <div class="search-ribbon">
     <h2>Search</h2>
@@ -22,18 +22,46 @@
   </div>
 
   <!-- Map Section -->
-  <div class="map-container">
-    <iframe
-      class="map"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.839093102827!2d-123.2813823!3d44.5637807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c040b24f771007%3A0xffcf65b4dc9883f!2sReser%20Stadium!5e0!3m2!1sen!2sus!4v1611965645455!5m2!1sen!2sus"
-      allowfullscreen=""
-      loading="lazy"
-    ></iframe>
-  </div>
+  <div class="map-container" id="map" style="height: 500px;"></div>
 
   <!-- Info Section -->
-  <div class="info-section">
+  <div class="info-section" id="info-section">
     <p>Select a location on the map or from the search ribbon to view more details.</p>
   </div>
 
-{%endblock%}
+  <!-- Leaflet.js Script -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+
+  <!-- Pass markers to JavaScript as a JSON object -->
+  <script>
+    var markers = {{ markers | tojson }};
+    
+    // Initialize the map and set the view (center and zoom level)
+    var map = L.map('map').setView([44.5646, -123.2620], 14);  // Centered on University of Oregon with zoom level 14
+
+    // Set up the OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Loop through the markers array and create markers dynamically
+    markers.forEach(function(markerData) {
+      var marker = L.marker([markerData.lat, markerData.lng]).addTo(map);
+      marker.bindPopup("<b>" + markerData.info + "</b>");
+
+      // Event listener for when the marker is clicked
+      marker.on('click', function() {
+        // Update the info section with new content
+        document.getElementById('info-section').innerHTML = `
+          <h3>Marker Information</h3>
+          <p>${markerData.info}</p>
+          <p>Latitude: ${markerData.lat}</p>
+          <p>Longitude: ${markerData.lng}</p>
+        `;
+      });
+    });   
+  </script>
+
+{% endblock %}
