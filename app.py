@@ -20,11 +20,17 @@ async def get_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/map")
-async def get_map(request: Request):
-    # Fetch landmarks from MongoDB
-    landmarks = list(collection.find({}, {"_id": 0, "name": 1, "location": 1, "description": 1}))
+async def get_map(request: Request, tag: str = Query("", alias="tag")):
+    # Fetch all distinct tags from the collection
+    available_tags = sorted(set(collection.distinct("tag")))
 
-    # Format the landmarks as markers
+    # Filter landmarks by the selected tag
+    if tag:
+        landmarks = list(collection.find({"tag": tag}, {"_id": 0, "name": 1, "location": 1, "description": 1, "tag": 1}))
+    else:
+        landmarks = list(collection.find({}, {"_id": 0, "name": 1, "location": 1, "description": 1, "tag": 1}))
+
+    # Format landmarks as markers
     markers = []
     for landmark in landmarks:
         location = landmark["location"].split(",")
@@ -33,11 +39,19 @@ async def get_map(request: Request):
             markers.append({
                 "lat": lat,
                 "lng": lng,
-                "info": f"<b>{landmark['name']}</b><br>{landmark['description']}"
+                "name": f"<b>{landmark['name']}</b>",
+                "description": f"<br>{landmark['description']}",
+                "tag": landmark['tag']  # Include the tag for filtering on the frontend
             })
 
-    # Pass markers to the template
-    return templates.TemplateResponse("map.html", {"request": request, "markers": markers})
+    # Pass markers and other necessary information to the template
+    return templates.TemplateResponse("map.html", {
+        "request": request,
+        "markers": markers,
+        "available_tags": available_tags,
+        "selected_tag": tag,
+    })
+
 
 @app.get("/about")
 async def get_about(request: Request):
@@ -47,14 +61,14 @@ async def get_about(request: Request):
 async def get_mission(request: Request):
     return templates.TemplateResponse("mission.html", {"request": request})
 
-@app.get("/history")
-async def get_history(request: Request, tag: str = Query("", alias="tag")):
+@app.get("/lore")
+async def get_lore(request: Request, tag: str = Query("", alias="tag")):
     available_tags = sorted(set(collection.distinct("tag")))
     if tag:
         landmarks = list(collection.find({"tag": tag}, {"_id": 0}))
     else:
         landmarks = list(collection.find({}, {"_id": 0}))
-    return templates.TemplateResponse("history.html", {"request": request, "landmarks": landmarks, "available_tags": available_tags, "selected_tag": tag})
+    return templates.TemplateResponse("lore.html", {"request": request, "landmarks": landmarks, "available_tags": available_tags, "selected_tag": tag})
 
 @app.get("/tour")
 async def get_tour(request: Request):

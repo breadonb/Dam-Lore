@@ -1,21 +1,12 @@
 {%extends "base.html"%}
 
-{%block title%}History{%endblock%}
+{%block title%}The Lore{%endblock%}
 
-{%block content%} 
- <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>History of Oregon State University</h1>
-      <p>Explore the rich history of Oregon State University and the significant events that shaped its legacy.</p>
-      <div class="hero-links">
-        <a href="/">Home</a>
-        <a href="/map">Map</a>
-        <a href="/about">About</a>
-      </div>
-    </div>
-  </header>
+<!--Hero Section-->
+{%block hero_title%}The Lore{%endblock%}
+{%block hero_p%}Discover the lore of OSU through a collection of entries.{%endblock%}
 
+{%block content%}
   <!--filter form-->
   <section class ="filter">
     <form method="GET">
@@ -30,13 +21,13 @@
     </form>
   </section>
 
-  <!-- History Entries -->
-  <section class="history">
+  <!-- Lore Entries -->
+  <section class="lore">
     <h2>Entries</h2>
 
     {%if landmarks%}
       {%for landmark in landmarks%}
-        <div class="history-entry">
+        <div class="lore-entry">
           <img src="{{ landmark.image_url}}" alt = "{{landmark.name}}">
           <div class="entry-info">
             <h3>{{landmark.name}}</h3>

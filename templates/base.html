@@ -10,6 +10,20 @@
   crossorigin=""/>
 </head>
 <body>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <h1>{%block hero_title%}{%endblock%}</h1>
+        <p>{%block hero_p%}{%endblock%}</p>
+        <div class="hero-links">
+          <a href="/">Home</a>
+          <a href="/lore">Lore</a>
+          <a href="/map">Map</a>
+          <a href="/about">About</a>
+          <a href="/mission">Our Mission</a>
+        </div>
+      </div>
+    </header>
 
 {%block content%}
 {% endblock %}
@@ -18,9 +32,11 @@
       <footer class="footer">
         <p>&copy; 2025 Dam Lore. All Rights Reserved.</p>
         <div class="footer-links">
-          <a href="/history">History</a>
+          <a href="/">Home</a>
+          <a href="/lore">Lore</a>
           <a href="/map">Map</a>
           <a href="/about">About</a>
+          <a href="/mission">Our Mission</a>
         </div>
       </footer>
 </body>
