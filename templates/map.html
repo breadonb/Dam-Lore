@@ -12,7 +12,7 @@
   <div class="search-ribbon">
     <h2>Search</h2>
     <div class="search-bar">
-      <input type="text" placeholder="Search locations...">
+      <input type="text" id="search-input" placeholder="Search locations...">
     </div>
 
     <!-- Filter by Tag -->
@@ -30,14 +30,8 @@
     </div>
 
     <div class="top-searched">
-      <h3>Top Searched</h3>
-      <ul>
-        <li>Location 1</li>
-        <li>Location 2</li>
-        <li>Location 3</li>
-        <li>Location 4</li>
-        <li>Location 5</li>
-      </ul>
+      <h3>Search Results</h3>
+      <ul id="search-results"></ul>
     </div>
   </div>
 
@@ -61,55 +55,49 @@
 <!-- Pass markers to JavaScript as a JSON object -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var markers = {{ markers | tojson }};  // Markers passed from backend
-    var selectedTag = "{{ selected_tag }}"; // Get the selected tag from the backend
+    var markers = {{ markers | tojson }};
+    var selectedTag = "{{ selected_tag }}";
+    var map = L.map('map').setView([44.5646, -123.2620], 14);
+    var infoSection = document.getElementById('info-section');
+    var searchInput = document.getElementById("search-input");
+    var searchResults = document.getElementById("search-results");
+    var markerLayer = L.layerGroup().addTo(map);
 
-    var map = L.map('map').setView([44.5646, -123.2620], 14);  // Center the map to Corvallis, OR
-
-    // Set up the OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var infoSection = document.getElementById('info-section');
-
-    // Function to filter markers by tag
-    function filterMarkersByTag(tag) {
-      if (!tag) {
-        return markers;  // Return all markers if no tag is selected
-      }
-      return markers.filter(function(marker) {
-        return marker.tag === tag;  // Only return markers with the selected tag
-      });
-    }
-
-    // Function to add markers to the map
     function addMarkers(filteredMarkers) {
-      // Clear existing markers
-      map.eachLayer(function(layer) {
-        if (layer instanceof L.Marker) {
-          map.removeLayer(layer);
-        }
-      });
-
-      // Loop through the filtered markers and create them
+      markerLayer.clearLayers();
+      searchResults.innerHTML = "";
+      
       filteredMarkers.forEach(function(markerData) {
-        var marker = L.marker([markerData.lat, markerData.lng]).addTo(map);
+        var marker = L.marker([markerData.lat, markerData.lng]).addTo(markerLayer);
         marker.bindPopup("<b>" + markerData.name + "</b>");
-
-        // Event listener for marker click
+        
         marker.on('click', function() {
-          infoSection.innerHTML = `
-            <h3>${markerData.name}</h3>
-            <p>${markerData.description}</p>
-          `;
+          infoSection.innerHTML = `<h3>${markerData.name}</h3><p>${markerData.description}</p>`;
         });
+        
+        var listItem = document.createElement("li");
+        listItem.textContent = markerData.name;
+        listItem.addEventListener("click", function() {
+          map.setView([markerData.lat, markerData.lng], 16);
+          marker.openPopup();
+
+          infoSection.innerHTML = `<h3>${markerData.name}</h3><p>${markerData.description}</p>`;
+        });
+        searchResults.appendChild(listItem);
       });
     }
 
-    // Filter and add the markers for the selected tag
-    var filteredMarkers = filterMarkersByTag(selectedTag);
-    addMarkers(filteredMarkers);
+    searchInput.addEventListener("input", function () {
+      var query = searchInput.value.toLowerCase();
+      var filteredMarkers = markers.filter(m => m.name.toLowerCase().includes(query));
+      addMarkers(filteredMarkers);
+    });
+    
+    addMarkers(markers);
   });
 </script>
 

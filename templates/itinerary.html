@@ -1,0 +1,16 @@
+{%extends "base.html"%}
+
+{%block title%}Itinerary{%endblock%}
+
+{%block hero_title%}The Itinerary{%endblock%}
+{%block hero_p%}It can be hard to plan a day in Corvalls. This page provides a set of guides hand-picked by OSU students to fill the day for certain events and occasions.{%endblock%}
+
+{%block content%}
+    {%for tour in tours%}
+        <div class="tour_container">
+            <h2>{{tour.name}}</h2>
+            <a href="/tour">Take the tour</a>
+        </div>
+    {%endfor%}
+{%endblock%}
+

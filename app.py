@@ -10,6 +10,7 @@ MONGO_URI = "mongodb+srv://debruyns:DAMLore@damlore-cluster.qn1o6.mongodb.net/"
 client = MongoClient(MONGO_URI)
 db = client["debruyns"]
 collection = db["landmarks"]
+tours = db["tours"]
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -97,3 +98,8 @@ async def post_adder(
     }
     collection.insert_one(new_landmark)
     return {"message": "Landmark added successfully!"}
+
+@app.get("/itinerary")
+async def get_itinerary(request:Request):
+    avail_tours = list(tours.find({}, {"_id":0, "name":1}))
+    return templates.TemplateResponse("itinerary.html", {"request":request, "tours":avail_tours})
