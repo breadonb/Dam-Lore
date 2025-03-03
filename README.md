@@ -15,5 +15,10 @@ Our application will allow users to discover much more about the place they live
 It will solve the problem for students, visitors, and parents alike to find things to do close by and contain multilingual capabilities for 
 the vast international community. 
 
+## User Case Available
+- User can open home page and see introduction of all the pages of the website.
+- User can navigate to mission page and have info of our mission
+- User can navigate to about page and see the info of team members 
+
 
 
