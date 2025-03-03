@@ -331,7 +331,9 @@ hr {
 
 .tour-img {
   width: 250px;
-  margin-right: 20px
+  height: 200px;
+  object-fit: contain;
+  margin-right: 20px;
 }
 
 .audiobar {
