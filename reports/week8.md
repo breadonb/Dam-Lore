@@ -23,7 +23,8 @@ Also some people did not show up at the meeting, so they may fall behind schedul
 ### Amit Guha:
 
 ### Dan Quan:
-
+- Attended Group Meeting
+- Added Restaurants to Database
 
 ### Lucy Cheng:
 - Attend group meeting
@@ -34,15 +35,15 @@ Also some people did not show up at the meeting, so they may fall behind schedul
 ### Michael Balzer:
 
 ### Sjoerd De Bruyn:
-  Led group meeting and created game plan for beta release
-  Switched to and implemented Leaflet.js map api
-  Added filter function to map
-  Added feature to dynamically add new markers to map when new entries are added
-  Reworked map page UI/UX
-  Reworked hero section 
-  Fixed links between pages and created consistent link ribbon
-  Reworked temp adder page to include new tags and latitude/longitude for mapping
-  Edited db schema and helped insert restaurants and events data
+-  Led group meeting and created game plan for beta release
+-  Switched to and implemented Leaflet.js map api
+-  Added filter function to map
+-  Added feature to dynamically add new markers to map when new entries are added
+-  Reworked map page UI/UX
+-  Reworked hero section 
+-  Fixed links between pages and created consistent link ribbon
+-  Reworked temp adder page to include new tags and latitude/longitude for mapping
+-  Edited db schema and helped insert restaurants and events data
 
 
 ### Ben Breadon:
