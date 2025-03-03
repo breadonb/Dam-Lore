@@ -72,6 +72,25 @@
      text-decoration: underline;
    }
    
+      /* ============================
+      DAM Lore Summary Section
+      ============================ */
+      .dam-lore-summary {
+        background-color: #f8f9fa;
+        margin-right: 10px;
+        padding: 60px 20px;
+        text-align: justify;
+        list-style-type: none;
+        width: 75%;
+      }
+      
+      .dam-lore-summary h2 {
+        font-size: 3rem;
+        color: #DC4405;
+        margin-bottom: 40px;
+      }
+      
+
    /* ============================
       Recommendations Section
       ============================ */
@@ -403,4 +422,50 @@
 
     /* ============================
     Itinerary
-    ============================ */
+    ============================ */ 
+
+    .tour-container {
+      background: #ffffff;
+      border: 2px solid #DC4405;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .tour-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .tour-container h2 {
+      font-size: 1.8rem;
+      color: #DC4405;
+      margin-bottom: 10px;
+    }
+    
+    .tour-container p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
+    .tour-container a {
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      background: #DC4405;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    
+    .tour-container a:hover {
+      background: #C13705;
+    }
+    

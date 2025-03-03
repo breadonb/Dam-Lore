@@ -71,9 +71,12 @@ async def get_lore(request: Request, tag: str = Query("", alias="tag")):
         landmarks = list(collection.find({}, {"_id": 0}))
     return templates.TemplateResponse("lore.html", {"request": request, "landmarks": landmarks, "available_tags": available_tags, "selected_tag": tag})
 
-@app.get("/tour")
-async def get_tour(request: Request):
-    return templates.TemplateResponse("tour.html", {"request": request})
+@app.get("/tour/{tour_name}")
+async def get_tour(request: Request, tour_name: str):
+    tour = tours.find_one({"name": tour_name}, {"_id":0})
+    if not tour:
+        return JSONResponse(status_code=404, content={"message": "Tour not found"})
+    return templates.TemplateResponse("tour.html", {"request": request, "tour": tour})
 
 @app.get("/adder")
 async def get_adder(request: Request):
@@ -101,5 +104,5 @@ async def post_adder(
 
 @app.get("/itinerary")
 async def get_itinerary(request:Request):
-    avail_tours = list(tours.find({}, {"_id":0, "name":1}))
+    avail_tours = list(tours.find({}, {"_id":0, "name":1, "description":1}))
     return templates.TemplateResponse("itinerary.html", {"request":request, "tours":avail_tours})
