@@ -10,6 +10,7 @@ MONGO_URI = "mongodb+srv://debruyns:DAMLore@damlore-cluster.qn1o6.mongodb.net/"
 client = MongoClient(MONGO_URI)
 db = client["debruyns"]
 collection = db["landmarks"]
+tours = db["tours"]
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -20,11 +21,17 @@ async def get_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/map")
-async def get_map(request: Request):
-    # Fetch landmarks from MongoDB
-    landmarks = list(collection.find({}, {"_id": 0, "name": 1, "location": 1, "description": 1}))
+async def get_map(request: Request, tag: str = Query("", alias="tag")):
+    # Fetch all distinct tags from the collection
+    available_tags = sorted(set(collection.distinct("tag")))
 
-    # Format the landmarks as markers
+    # Filter landmarks by the selected tag
+    if tag:
+        landmarks = list(collection.find({"tag": tag}, {"_id": 0, "name": 1, "location": 1, "description": 1, "tag": 1}))
+    else:
+        landmarks = list(collection.find({}, {"_id": 0, "name": 1, "location": 1, "description": 1, "tag": 1}))
+
+    # Format landmarks as markers
     markers = []
     for landmark in landmarks:
         location = landmark["location"].split(",")
@@ -33,11 +40,19 @@ async def get_map(request: Request):
             markers.append({
                 "lat": lat,
                 "lng": lng,
-                "info": f"<b>{landmark['name']}</b><br>{landmark['description']}"
+                "name": f"<b>{landmark['name']}</b>",
+                "description": f"<br>{landmark['description']}",
+                "tag": landmark['tag']  # Include the tag for filtering on the frontend
             })
 
-    # Pass markers to the template
-    return templates.TemplateResponse("map.html", {"request": request, "markers": markers})
+    # Pass markers and other necessary information to the template
+    return templates.TemplateResponse("map.html", {
+        "request": request,
+        "markers": markers,
+        "available_tags": available_tags,
+        "selected_tag": tag,
+    })
+
 
 @app.get("/about")
 async def get_about(request: Request):
@@ -47,18 +62,21 @@ async def get_about(request: Request):
 async def get_mission(request: Request):
     return templates.TemplateResponse("mission.html", {"request": request})
 
-@app.get("/history")
-async def get_history(request: Request, tag: str = Query("", alias="tag")):
+@app.get("/lore")
+async def get_lore(request: Request, tag: str = Query("", alias="tag")):
     available_tags = sorted(set(collection.distinct("tag")))
     if tag:
         landmarks = list(collection.find({"tag": tag}, {"_id": 0}))
     else:
         landmarks = list(collection.find({}, {"_id": 0}))
-    return templates.TemplateResponse("history.html", {"request": request, "landmarks": landmarks, "available_tags": available_tags, "selected_tag": tag})
+    return templates.TemplateResponse("lore.html", {"request": request, "landmarks": landmarks, "available_tags": available_tags, "selected_tag": tag})
 
-@app.get("/tour")
-async def get_tour(request: Request):
-    return templates.TemplateResponse("tour.html", {"request": request})
+@app.get("/tour/{tour_name}")
+async def get_tour(request: Request, tour_name: str):
+    tour = tours.find_one({"name": tour_name}, {"_id":0})
+    if not tour:
+        return JSONResponse(status_code=404, content={"message": "Tour not found"})
+    return templates.TemplateResponse("tour.html", {"request": request, "tour": tour})
 
 @app.get("/adder")
 async def get_adder(request: Request):
@@ -83,3 +101,8 @@ async def post_adder(
     }
     collection.insert_one(new_landmark)
     return {"message": "Landmark added successfully!"}
+
+@app.get("/itinerary")
+async def get_itinerary(request:Request):
+    avail_tours = list(tours.find({}, {"_id":0, "name":1, "description":1}))
+    return templates.TemplateResponse("itinerary.html", {"request":request, "tours":avail_tours})
