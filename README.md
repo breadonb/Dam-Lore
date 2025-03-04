@@ -2,6 +2,10 @@
 **Project proposal: (https://docs.google.com/document/d/1trV5bVjFNRz2OAK8bVXCxveVXWNtNZy2brRy2OIu-tQ/edit?tab=t.0#heading=h.zahx46skvav0)**
 ### Layout
 The layout of the repository is a README.md that has an overview of the project, and HTML files that set up our website. The reports folder has the weekly status reports. 
+
+### Website link:
+(https://damlore-ea00bfbe67d3.herokuapp.com/)
+
 ### Trello board link:
 (https://trello.com/b/wLxDhrms/dam-lore )
 
