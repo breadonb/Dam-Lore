@@ -1,5 +1,6 @@
 fastapi
 uvicorn
-motor
+pymongo
 jinja2
 python-multipart
+dnspython
