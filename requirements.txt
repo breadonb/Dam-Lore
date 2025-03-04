@@ -1,5 +1,5 @@
 fastapi
 uvicorn
-pymongo
+motor
 jinja2
 python-multipart
