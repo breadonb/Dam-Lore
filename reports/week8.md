@@ -33,6 +33,9 @@ Also some people did not show up at the meeting, so they may fall behind schedul
 - Add info on about page
 
 ### Michael Balzer:
+- attended group meeting
+- fixed minor bugs on the HTML pages
+- fixed some styling issues with the dynamic functionality on the tour page
 
 ### Sjoerd De Bruyn:
 -  Led group meeting and created game plan for beta release
