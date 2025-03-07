@@ -6,30 +6,28 @@
 {%block hero_title%}<span class="dam-title">DAM</span> <span class="lore-title">LORE</span>{%endblock%}
 
 {% block content %}
-  <div class="tour-description"></div>  
   <h2>{{ tour.name }}</h2>
 
   <!-- Tour Step Details -->
   
-    <h2 id="step-title"></h2>
-    <p id="step-description"></p>
+  <h2 id="step-title"></h2>
+  <p id="step-description"></p>
 
-    <div class="tour-map">
-      <iframe id="map" class="map" allowfullscreen loading="lazy"></iframe>
-    </div>
+  <div class="tour-map">
+    <iframe id="map" class="map" allowfullscreen loading="lazy"></iframe>
+  </div>
 
-    <div class="tour-description">
-      <img id="tour-img" class="tour-img" src="" alt="Step Image">
-    </div>
+  <div class="tour-description">
+    <img id="tour-img" class="tour-img" src="" alt="Step Image">
+  </div>
     
-    <div>
-      <p id="step-directions"><a href="#" target="_blank">Get Directions</a></p>
-    </div>
+  <div>
+    <p id="step-directions"><a href="#" target="_blank">Get Directions</a></p>
   </div>
 
   <!-- Tour Steps Navigation -->
   <div class="button-container">
-    <button id="prev" class="nav-btn" disabled>Previous</button>
+    <button id="prev" class="nav-btn">Previous</button>
     <button id="next" class="nav-btn">Next</button>
   </div>
 
