@@ -33,7 +33,9 @@ Also some people did not show up at the meeting, so they may fall behind schedul
 - Add info on about page
 
 ### Michael Balzer:
-
+- attended group meeting
+- fixed some styling inconsistencies with the tour page's dynamic functionality
+- performed some minor bug fixes with the html files
 ### Sjoerd De Bruyn:
 -  Led group meeting and created game plan for beta release
 -  Switched to and implemented Leaflet.js map api

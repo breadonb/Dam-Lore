@@ -42,7 +42,8 @@ we're not sure how we will do that.
 - In charge of "Our Mission page"
 
 ### Michael Balzer:
-
+- created tour page in collaboration with amit
+- created the static, styling, and layout elements of the tour page
 
 ### Sjoerd De Bruyn:
 - Attended team meeting
