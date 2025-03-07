@@ -206,7 +206,12 @@
 
       .mission {
         display: flex;
-      } 
+        flex-wrap: wrap; /* Prevents horizontal overflow */
+        justify-content: center; /* Centers content */
+        align-items: center; /* Aligns vertically */
+        max-width: 100%; /* Ensures it does not exceed the page width */
+        padding: 20px;
+      }
       
       .mission_photo {
         width: 400px;
@@ -214,23 +219,21 @@
         overflow: hidden;
         display: flex;
         border: 2px solid #DC4405;
-        position: relative;
-        left: 10%;
-      
+        margin: 10px; /* Adds spacing */
       }
       
       .m_box {
-        display: column;
+        display: flex;
+        flex-direction: column; /* Stacks text properly */
         margin: 20px;
-        position: relative;
-        left:20%;
+        max-width: 600px; /* Prevents text from stretching too wide */
       }
       
       .mission_text {
-      
-        max-width: 600px;
         font-size: 1.2rem;
+        text-align: center; /* Centers text */
       }
+      
    
    /* ============================
       Lore Section
