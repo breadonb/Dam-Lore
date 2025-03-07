@@ -38,7 +38,7 @@
    .hero {
      background-color: #f9f9f9;
      text-align: center;
-     padding: 100px 20px;
+     padding: 20px 20px;
      border-bottom: 2px solid #000;
    }
    
@@ -357,46 +357,42 @@
      height: 100%;
      border: none;
    }
-   
-   /* ============================
-      Info Section
-      ============================ */
-   .info-section {
-     margin-top: 20px;
-     background: #ffffff;
-     padding: 15px;
-     border-radius: 8px;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   }
-   
-   .tour-map, .tour-description, .audiobar {
-     flex-grow: 1;
-   }
-   
    /* ============================
       Tour Page Setups
       ============================ */
    .tour-description {
-     width: 60%;
+     width: 50%;
      height: auto;
      padding: 5px;
      margin: auto;
      display: flex;
    }
+
+   .tour-directions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+   }
    
    .tour-img {
      width: 250px;
      margin-right: 20px;
-   }
-   
-   .audiobar {
-     width: 30%;
-     margin: 30px auto 20px;
+     justify-content: center;
+     text-align: center;
    }
    
    /* ============================
-      Buttons
+      Tour Buttons
       ============================ */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+
    button {
      background-color: #DC4405;
      color: white;
@@ -469,4 +465,3 @@
     .tour-container a:hover {
       background: #C13705;
     }
-    

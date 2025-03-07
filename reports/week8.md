@@ -34,6 +34,9 @@ Also some people did not show up at the meeting, so they may fall behind schedul
 
 ### Michael Balzer:
 - attended group meeting
+
+- fixed some styling inconsistencies with the tour page's dynamic functionality
+- performed some minor bug fixes with the html files
 - fixed minor bugs on the HTML pages
 - fixed some styling issues with the dynamic functionality on the tour page
 
