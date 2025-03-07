@@ -7,7 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Initialize the map and set the view (center and zoom level)
     var map = L.map('map').setView([44.5646, -123.2620], 14);  // Centered on University of Oregon with zoom level 14
-  
+
+    // Restrict map bounds (optional)
+    var bounds = L.latLngBounds(
+      [44.55, -123.29], // Southwest corner
+      [44.58, -123.23]  // Northeast corner
+    );
+    map.setMaxBounds(bounds);
+    map.on('drag', function() {
+        map.panInsideBounds(bounds, { animate: false });
+    });
+
     // Set up the OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -16,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Loop through the markers array and create markers dynamically
     markers.forEach(function(markerData) {
       var marker = L.marker([markerData.lat, markerData.lng]).addTo(map);
-      marker.bindPopup("<b>" + markerData.info + "</b>");
+      marker.bindPopup(`<span class="marker-title">${markerData.name}</span>`);
   
       // Event listener for when the marker is clicked
       marker.on('click', function() {

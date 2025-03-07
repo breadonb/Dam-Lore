@@ -40,7 +40,7 @@ async def get_map(request: Request, tag: str = Query("", alias="tag")):
             markers.append({
                 "lat": lat,
                 "lng": lng,
-                "name": f"<b>{landmark['name']}</b>",
+                "name": f"{landmark['name']}",
                 "description": f"<br>{landmark['description']}",
                 "tag": landmark['tag']  # Include the tag for filtering on the frontend
             })

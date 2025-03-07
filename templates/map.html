@@ -57,11 +57,21 @@
   document.addEventListener("DOMContentLoaded", function () {
     var markers = {{ markers | tojson }};
     var selectedTag = "{{ selected_tag }}";
-    var map = L.map('map').setView([44.5646, -123.2620], 14);
+    var map = L.map('map', {zoom:14, minZoom:12}).setView([44.5646, -123.2620], 14);
     var infoSection = document.getElementById('info-section');
     var searchInput = document.getElementById("search-input");
     var searchResults = document.getElementById("search-results");
     var markerLayer = L.layerGroup().addTo(map);
+
+    // Restrict map bounds (optional)
+    var bounds = L.latLngBounds(
+      [44.53, -123.30], // Southwest corner
+      [44.62, -123.19]  // Northeast corner 
+    );
+    map.setMaxBounds(bounds);
+    map.on('drag', function() {
+        map.panInsideBounds(bounds, { animate: false });
+    });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -73,7 +83,7 @@
       
       filteredMarkers.forEach(function(markerData) {
         var marker = L.marker([markerData.lat, markerData.lng]).addTo(markerLayer);
-        marker.bindPopup("<b>" + markerData.name + "</b>");
+        marker.bindPopup(`<span class="marker-title">${markerData.name}</span>`);
         
         marker.on('click', function() {
           infoSection.innerHTML = `<h3>${markerData.name}</h3><p>${markerData.description}</p>`;
