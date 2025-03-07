@@ -380,6 +380,8 @@
    .tour-img {
      width: 250px;
      margin-right: 20px;
+     justify-content: center;
+     text-align: center;
    }
    
    /* ============================
