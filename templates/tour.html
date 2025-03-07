@@ -1,18 +1,16 @@
-{% extends "base.html" %}
+{%extends "base.html"%}
 
-{% block title %}{{ tour.name }}{% endblock %}
+{%block title%}Home{%endblock%}
+
+<!--Hero Section-->
+{%block hero_title%}<span class="dam-title">DAM</span> <span class="lore-title">LORE</span>{%endblock%}
 
 {% block content %}
-  <h1>{{ tour.name }}</h1>
-
-  <!-- Tour Steps Navigation -->
-  <div class="tour-navigation">
-    <button id="prev" class="nav-btn" disabled>Previous</button>
-    <button id="next" class="nav-btn">Next</button>
-  </div>
+  <div class="tour-description"></div>  
+  <h2>{{ tour.name }}</h2>
 
   <!-- Tour Step Details -->
-  <div class="tour-step">
+  
     <h2 id="step-title"></h2>
     <p id="step-description"></p>
 
@@ -22,16 +20,17 @@
 
     <div class="tour-description">
       <img id="tour-img" class="tour-img" src="" alt="Step Image">
-      <div>
-        <p id="step-directions"><a href="#" target="_blank">Get Directions</a></p>
-      </div>
     </div>
+    
+    <div>
+      <p id="step-directions"><a href="#" target="_blank">Get Directions</a></p>
+    </div>
+  </div>
 
-    <div class="audiobar">
-      <audio id="audio" controls>
-        Your browser does not support this feature
-      </audio>
-    </div>
+  <!-- Tour Steps Navigation -->
+  <div class="button-container">
+    <button id="prev" class="nav-btn" disabled>Previous</button>
+    <button id="next" class="nav-btn">Next</button>
   </div>
 
   <script>
